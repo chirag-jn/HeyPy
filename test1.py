@@ -38,7 +38,7 @@ Note : Use STOP to terminate a certain lvl
 '''
 class render :
     stack =[]
-    
+
     def program(self):
         prg = ""
         tabs = 0 # to keep track of tabs (rep as "t")
@@ -61,34 +61,12 @@ class render :
                 prg=prg+'\t'*tab +str(i.req)+" :"
             elif i.token == "variable":
                 prg=prg+'\t'*tab +str(i.req)+" :"
-                
-                
+
 class token :
     cmd = {"for":[placeholder,span],"if":[x_boo],"while":[x_boo],"variable":[x_ass]}
-     def __init__(self,s,l):
-         self.token = s
-         self.req = l
+    def __init__(self,s,l):
+        self.token = s
+        self.req = l
 
-
-
-
-
-s = ""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ ==' __main__':
+    temp = token("for", "10")
