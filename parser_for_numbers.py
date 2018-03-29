@@ -11,7 +11,8 @@ for i in test:
 newList = newString.split()
 
 for i in range(len(newList)):
-	if i <= len(newList)-2 and newList[i].isdigit() and newList[i+1].isdigit() and (int(newList[i+1]) == 100 or int(newList[i+1]) == 1000 or int(newList[i+1]) == 10000 or int(newList[i+1]) == 100000):
+	# print(str(newList) + " " + str(i))
+	if i <= len(newList)-2 and newList[i].isdigit() and newList[i+1].isdigit() and (int(newList[i+1]) == 100 or int(newList[i+1]) == 1000 or int(newList[i+1]) == 10000 or int(newList[i+1]) == 100000 or int(newList[i+1]) == 1000000 or int(newList[i+1]) == 10000000 or int(newList[i+1]) == 10000000 or int(newList[i+1]) == 1000000):
 		temp = int(newList[i]) * int(newList[i+1])
 		newList[i] = str(temp)
 		newList.remove(newList[i+1])
@@ -28,6 +29,14 @@ for i in range(len(newList)):
 		newList.remove(newList[i+2])
 		newList.remove(newList[i+1])
 		#delete next two indices
+
+i = len(newList)-1
+while(len(newList) > 1 and i >= 0):
+	if(newList[i].isdigit() and newList[i-1].isdigit()):
+		temp = int(newList[i]) + int(newList[i-1])
+		newList[i-1] = str(temp)
+		newList.remove(newList[i])
+	i = i-1
 
 finalString = ''
 for i in newList:

@@ -6,7 +6,13 @@ while i < len(text):
 	# print(text[i])
 	if 'great' in text[i]:
 		if 'than' in text[i+1]:
-			if i+3 < len(text) and 'equal' in text[i+3]:
+			if (i+2 <len(text) and 'equal' in text[i+2]):
+				text[i] = 'gte'
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				i = i+1
+			elif (i+3 < len(text) and 'equal' in text[i+3]):
 				text[i] = 'gte'
 				text.remove(text[i+1])
 				text.remove(text[i+1])
@@ -19,7 +25,13 @@ while i < len(text):
 				i = i+1
 	elif 'less' in text[i]:
 		if 'than' in text[i+1]:
-			if i+3 < len(text) and 'equal' in text[i+3]:
+			if (i+2 <len(text) and 'equal' in text[i+2]):
+				text[i] = 'lte'
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				i = i+1
+			elif i+3 < len(text) and 'equal' in text[i+3]:
 				text[i] = 'lte'
 				text.remove(text[i+1])
 				text.remove(text[i+1])
