@@ -12,11 +12,11 @@ def parse_bool(text):
 					text[i] = 'gte'
 					text.remove(text[i+1])
 					text.remove(text[i+1])
-					text.remove(text[i+1])
+					# text.remove(text[i+1])
 					i = i+1
 				elif (i+3 < len(text) and 'equal' in text[i+3]):
 					text[i] = 'gte'
-					text.remove(text[i+1])
+					# text.remove(text[i+1])
 					text.remove(text[i+1])
 					text.remove(text[i+1])
 					text.remove(text[i+1])
@@ -31,12 +31,12 @@ def parse_bool(text):
 					text[i] = 'lte'
 					text.remove(text[i+1])
 					text.remove(text[i+1])
-					text.remove(text[i+1])
+					# text.remove(text[i+1])
 					i = i+1
 				elif i+3 < len(text) and 'equal' in text[i+3]:
 					text[i] = 'lte'
 					text.remove(text[i+1])
-					text.remove(text[i+1])
+					# text.remove(text[i+1])
 					text.remove(text[i+1])
 					text.remove(text[i+1])
 					i = i+1
@@ -49,7 +49,7 @@ def parse_bool(text):
 				continue
 			elif 'not' in text[i-1]:
 				text[i-1] = 'ne'
-				text.remove(text[i])
+				# text.remove(text[i])
 				text.remove(text[i])
 				i = i+2
 			else:

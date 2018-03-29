@@ -17,7 +17,7 @@ class token :
 def program():
 	prg = ""
 	tab = 0 # to keep track of tabs (rep as "t")
-	import os
+	# import os
 	# os.rename('finalcode.py', 'temp.txt')
 	with open('finalcode.py', 'w') as t:
 		# with open('finalcode.txt')
@@ -37,7 +37,7 @@ def program():
 			elif i.token == "var":
 				prg=prg+'\t'*tab +str(i.req[0])+" = "+str(i.req[1])+"\n"
 			elif i.token == "print":
-				prg=prg+'\t'*tab +"print "+str(i.req[0])+"\n"
+				prg=prg+'\t'*tab +"print( "+str(i.req[0])+")\n"
 		# print(prg)
 		t.write(prg)
 		t.close()
@@ -63,7 +63,7 @@ cmd = ["assign variable b with 6",
 def parse(cmd):
 	cmd = parse_nums(cmd)
 	cmd = parse_bool(cmd)
-	print(cmd)
+	print("parsed " + cmd)
 	task = 0
 	sent = cmd.lower().split(" ")
 	#assign
@@ -176,13 +176,13 @@ def parse(cmd):
 
 			elif subtask==3:
 				if nextval==1:
-					assigned+=i
+					assigned= assigned + i + " "
 					nextval=0
 					nextvar=1
 				elif i in operator:
-					assigned+=operator[i]
+					assigned= assigned + operator[i] + " "
 				elif i.isdigit():
-					assigned+=str(i)
+					assigned= assigned + str(i) + " "
 				if nextvar==1 and i=="variable":
 					nextval=1
 					nextvar=0
