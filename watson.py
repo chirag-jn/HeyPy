@@ -1,3 +1,7 @@
+import requests
+import json
+from Recorder import record_audio, read_audio
+
 def startrec():
 	import pyaudio
 	import wave
@@ -38,21 +42,8 @@ def startrec():
 	wf.writeframes(b''.join(frames))
 	wf.close()
 
-def watson_run(usr, passd):
-	import requests
-	import os
-	import json
-	startrec()
-	url = "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=false&max_alternatives=0"
-	headers = {"Content-Type": "audio/wav"}
-	# payload = {'data-binary':"@~/Downloads/watson/audio-file.flac"}
-	# r = requests.post("https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true&max_alternatives=3", data={'header': "Content-Type: audio/flac", 'data-binary': '~/Downloads/watson/audio-file.flac'}, auth=("b2aca159-86a0-4afa-9b22-4b720ee1957f", "vTSl6VKjZMPA"))
-	user = usr
-	passwd = passd
-	audio_file = os.path.abspath('') + '/output.wav'
-	audio = open(audio_file, 'rb')
-	r = requests.post(url, data=audio, headers=headers, auth=(user, passwd))
-	# print(r.text)
-	trans = json.loads(r.text)
-	returned = trans["results"][0]['alternatives'][0]['transcript']
-	return returned
+def read_audio(WAVE_FILENAME):
+    # function to read audio(wav) file
+    with open(WAVE_FILENAME, 'rb') as f:
+        audio = f.read()
+    return audio
