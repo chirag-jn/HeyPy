@@ -17,24 +17,31 @@ class token :
 def program():
 	prg = ""
 	tab = 0 # to keep track of tabs (rep as "t")
-	for i in stack :
-		if i == "[":
-			tab+=1
-		elif i == "]":
-			tab-=1
-		elif i.token == "for":
-			prg=prg+'\t'*tab + "for "+str(i.req[0])+" in range("+str(i.req[1])+","+str(i.req[2])+"):\n"
-		elif i.token == "if":
-			prg=prg+'\t'*tab+ "if " +str(i.req[0])+" :\n"
-		elif i.token == "else":
-			prg=prg+'\t'*tab+ "else" +" :\n"
-		elif i.token == "while":
-			prg=prg+'\t'*tab+ "while " +str(i.req[0])+" :\n"
-		elif i.token == "var":
-			prg=prg+'\t'*tab +str(i.req[0])+" = "+str(i.req[1])+"\n"
-		elif i.token == "print":
-			prg=prg+'\t'*tab +"print "+str(i.req[0])+"\n"
-	print(prg)
+	import os
+	# os.rename('finalcode.py', 'temp.txt')
+	with open('finalcode.py', 'w') as t:
+		# with open('finalcode.txt')
+		for i in stack :
+			if i == "[":
+				tab+=1
+			elif i == "]":
+				tab-=1
+			elif i.token == "for":
+				prg=prg+'\t'*tab + "for "+str(i.req[0])+" in range("+str(i.req[1])+","+str(i.req[2])+"):\n"
+			elif i.token == "if":
+				prg=prg+'\t'*tab+ "if " +str(i.req[0])+" :\n"
+			elif i.token == "else":
+				prg=prg+'\t'*tab+ "else" +" :\n"
+			elif i.token == "while":
+				prg=prg+'\t'*tab+ "while " +str(i.req[0])+" :\n"
+			elif i.token == "var":
+				prg=prg+'\t'*tab +str(i.req[0])+" = "+str(i.req[1])+"\n"
+			elif i.token == "print":
+				prg=prg+'\t'*tab +"print "+str(i.req[0])+"\n"
+		# print(prg)
+		t.write(prg)
+		t.close()
+	# os.rename('temp.txt', 'finalcode.py')
 
 cmd = ["assign variable b with 6",
 "assign variable a with 5",
