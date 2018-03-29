@@ -1,28 +1,50 @@
 text = input().split()
-
 ans = ''
-for i in range(len(text)):
+
+i = 0
+while i < len(text):
+	# print(text[i])
 	if 'great' in text[i]:
 		if 'than' in text[i+1]:
 			if i+3 < len(text) and 'equal' in text[i+3]:
-				ans = ans + "gte"
-				break
-				i = i+5
+				text[i] = 'gte'
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				i = i+1
 			else:
-				ans = ans + "gt"
-				break
-				i = i+3
+				text[i] = 'gt'
+				text.remove(text[i+1])
+				i = i+1
 	elif 'less' in text[i]:
 		if 'than' in text[i+1]:
 			if i+3 < len(text) and 'equal' in text[i+3]:
-				ans = ans + "lte"
-				break
-				i = i+5
+				text[i] = 'lte'
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				text.remove(text[i+1])
+				i = i+1
 			else:
-				ans = ans + "lt"
-				break
-				i = i+3
+				text[i] = 'lt'
+				text.remove(text[i+1])
+				i = i+1
 	elif 'equal' in text[i]:
-		ans = ans + "eq"
+		if i > 3 and ('great' in text[i-3] or 'less' in text[i-3]):
+			continue
+		elif 'not' in text[i-1]:
+			text[i-1] = 'ne'
+			text.remove(text[i])
+			text.remove(text[i])
+			i = i+2
+		else:
+			text[i] = 'eq'
+			text.remove(text[i+1])
+			i = i+2
+	i += 1
+
+for i in text:
+	ans = ans + i + " "
 
 print(ans)

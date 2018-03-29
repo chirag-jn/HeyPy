@@ -12,10 +12,41 @@ class token :
          self.token = s
          self.req = l
 
-cmd = "create for loop of variable i from 1 to 10"
+def program():
+    prg = ""
+    tab = 0 # to keep track of tabs (rep as "t")
+    for i in stack :
+        if i == "[":
+            tab+=1
+        elif i == "]":
+            tab-=1
+        elif i.token == "for":
+            prg=prg+'\t'*tab + "for "+str(i.req[0])+" in range("+str(i.req[1])+","+str(i.req[2])+"):\n"
+        elif i.token == "if":
+            prg=prg+'\t'*tab+ "if " +str(i.req[0])+" :\n"
+        elif i.token == "while":
+            prg=prg+'\t'*tab+ "while " +str(i.req[0])+" :\n"
+        elif i.token == "var":
+            prg=prg+'\t'*tab +str(i.req[0])+" = "+str(i.req[1])+"\n"
+        elif i.token == "print":
+        	prg=prg+'\t'*tab +"print "+str(i.req[0])+"\n"
+    print prg
 
-while True:
-    sent = cmd.lower().split(" ")
+cmd = ["assign variable b with 6",
+"assign variable a with 5",
+"create for loop of variable i from 1 to 2",
+"create if variable b gt variable a",
+"assign variable a with variable a plus variable b",
+"done",
+"create while variable a gt variable b",
+"function variable a",
+"assign variable a with variable a minus 1",
+"done",
+"done"
+]
+ind=0
+while ind<11:
+    sent = cmd[ind].lower().split(" ")
     #assign
     nextval=0
     nextassignee=0
@@ -77,6 +108,16 @@ while True:
                 if nextvar==1 and i=="variable":
                     nextval=1
                     nextvar=0
+                elif st==1 and nextval==1 :
+                    stack[-1].req.append(i)
+                    st=0
+                    end=1
+                    nextval=0
+                elif end==1 and nextval==1 :
+                    stack[-1].req.append(i)
+                    end=0
+                    nextval=0
+                    stack.append('[')
                 elif nextval==1:
                     nextval=0
                     stack[-1].req=[i]
@@ -85,21 +126,15 @@ while True:
                     stack[-1].req.append(str(i))
                     st=0
                     end=1
-                elif st==1 and nextval==1 :
-                    stack[-1].req.append(i)
-                    st=0
-                    end=1
-                    nextval=0
-                elif st==1 and (i=="variable" ) :
-                    nextval=1
+
                 elif end==1 and (i.isdigit() ) :
                     stack[-1].req.append(str(i))
                     end=0
-                elif end==1 and nextval==1 :
-                    stack[-1].req.append(i)
-                    end=0
-                    nextval=0
                     stack.append('[')
+                elif st==1 and i=="variable" :
+                    nextval=1
+                
+                
                 elif end==1 and (i=="variable" ) :
                     nextval=1
 
@@ -167,9 +202,11 @@ while True:
                 stack[-1].req.append(assigned)
                 assigned=""
     task=0
-    for i in stack:
-    	if i == "[" or i=="]":
-    		print (i)
-    	else:
-        	print (i.token,i.req)
-    break
+    if ind==(len(cmd)-1):
+	    for i in stack:
+	    	if i == "[" or i=="]":
+	    		print (i)
+	    	else:
+	        	print (i.token,i.req)
+    ind+=1
+program()
