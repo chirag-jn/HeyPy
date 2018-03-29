@@ -1,3 +1,4 @@
+from parser_for_numbers import parse_nums
 #tasks-assign,create,function  {1,2,3}
 task=0
 
@@ -52,6 +53,8 @@ cmd = ["assign variable b with 6",
 # ind=0
 # while ind<14:
 def parse(cmd):
+	cmd = parse_nums(cmd)
+	print(cmd)
 	task = 0
 	sent = cmd.lower().split(" ")
 	#assign

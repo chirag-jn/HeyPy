@@ -5,5 +5,5 @@ from watson import watson_run
 from test2 import parse
 
 got_data = watson_run(user, passwd)
-print(got_data)
+# print(got_data)
 parse(got_data)
