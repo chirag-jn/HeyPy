@@ -40,13 +40,16 @@ wf.close()
 
 import requests
 import json
+import os
+
 url = "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=false&max_alternatives=0"
 headers = {"Content-Type": "audio/wav"}
 # payload = {'data-binary':"@~/Downloads/watson/audio-file.flac"}
 # r = requests.post("https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true&max_alternatives=3", data={'header': "Content-Type: audio/flac", 'data-binary': '~/Downloads/watson/audio-file.flac'}, auth=("b2aca159-86a0-4afa-9b22-4b720ee1957f", "vTSl6VKjZMPA"))
 user = "b2aca159-86a0-4afa-9b22-4b720ee1957f"
 passwd = "vTSl6VKjZMPA"
-audio = open('/home/casper/Downloads/watson/output.wav', 'rb')
+audio_file = os.path.abspath('') + '/output.wav'
+audio = open(audio_file, 'rb')
 r = requests.post(url, data=audio, headers=headers, auth=(user, passwd))
 # print(r.text)
 trans = json.loads(r.text)
