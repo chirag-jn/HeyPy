@@ -53,10 +53,15 @@ Examples:
 	--->assign the variable a  with variable c plus variable d raised to the power four plus seven
 		=> a = c + d**4 +7
 
+	*Using the function statement
+	|
+	--->function print variable a plus variable b
+		=> print(a+b)
+
 	*How to end a block 
 	|
 	--->done
 
-	
+
 
 
