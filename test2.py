@@ -1,4 +1,5 @@
 from parser_for_numbers import parse_nums
+from parser_for_booleanOps import parse_bool
 #tasks-assign,create,function  {1,2,3}
 task=0
 
@@ -54,6 +55,7 @@ cmd = ["assign variable b with 6",
 # while ind<14:
 def parse(cmd):
 	cmd = parse_nums(cmd)
+	cmd = parse_bool(cmd)
 	print(cmd)
 	task = 0
 	sent = cmd.lower().split(" ")
