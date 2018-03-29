@@ -49,9 +49,11 @@ cmd = ["assign variable b with 6",
 "done",
 "done"
 ]
-ind=0
-while ind<14:
-	sent = cmd[ind].lower().split(" ")
+# ind=0
+# while ind<14:
+def parse(cmd):
+	task = 0
+	sent = cmd.lower().split(" ")
 	#assign
 	nextval=0
 	nextassignee=0
@@ -212,11 +214,11 @@ while ind<14:
 				stack[-1].req.append(assigned)
 				assigned=""
 	task=0
-	if ind==(len(cmd)-1):
-		for i in stack:
-			if i == "[" or i=="]":
-				print (i)
-			else:
-				print (i.token,i.req)
-	ind+=1
-program()
+	# if ind==(len(cmd)-1):
+	# 	for i in stack:
+	# 		if i == "[" or i=="]":
+	# 			print (i)
+	# 		else:
+	# 			print (i.token,i.req)
+	# ind+=1
+	program()

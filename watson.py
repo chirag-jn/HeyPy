@@ -39,6 +39,9 @@ def startrec():
 	wf.close()
 
 def watson_run(usr, passd):
+	import requests
+	import os
+	import json
 	startrec()
 	url = "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=false&max_alternatives=0"
 	headers = {"Content-Type": "audio/wav"}
