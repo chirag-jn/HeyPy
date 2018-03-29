@@ -13,6 +13,7 @@ from scanTheWords import RecognizeSpeech
 # 	resp = client.speech(f,None, {'Content-Type': 'audio/wav'})
 # print(str(resp))
 
-cmd = RecognizeSpeech('output.wav',5)
-print(cmd)
-parse(cmd)
+while(True):
+	cmd = RecognizeSpeech('output.wav',5)
+	print(cmd)
+	parse(cmd)
