@@ -13,6 +13,8 @@ def RecognizeSpeech(AUDIO_FILENAME, num_seconds = 5):
                'Content-Type': 'audio/wav'}
     resp = requests.post(API_ENDPOINT, headers = headers,
                          data = audio)
+    # print(resp.content)
+    # input()
     data = json.loads(resp.content)
     text = data['_text']
     return text
