@@ -6,7 +6,8 @@ from test2 import parse
 
 cmd = ["assign variable b with six",
 "assign variable a with five",
-"create for loop of variable i from one to two",
+"assign variable c with variable a to the power seven",
+"create for loop of variable i till two ",
 "create if variable b greater than variable a",
 "assign variable a with variable a plus variable b",
 "done",
@@ -16,6 +17,9 @@ cmd = ["assign variable b with six",
 "create while not variable a less than or equals variable b and variable c not equals seven",
 "function variable a",
 "assign variable a with variable a minus one",
+"done",
+"create a while loop with one",
+"pass",
 "done",
 "done"
 ]

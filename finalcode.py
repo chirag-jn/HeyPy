@@ -1,6 +1,7 @@
 b = 6
 a = 5
-for i in range(1,2):
+c = a**7
+for i in range(2):
 	if b>a :
 		a = a+b
 	else :
@@ -8,3 +9,5 @@ for i in range(1,2):
 	while ! a <= b and c != 7  :
 		print( a)
 		a = a-1
+	while 1  :
+		pass

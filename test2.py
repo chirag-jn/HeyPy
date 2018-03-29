@@ -5,7 +5,7 @@ task=0
 
 stack=[]
 variables=[]
-operator={"plus":"+","minus":"-","into":"*","divided":"/","divide":"/","mod":"%","or":"or","and":"and","not":"!","gt":">","lt":"<","gte":">=","lte":"<=","eq":"==","ne":"!="}
+operator={"plus":"+","minus":"-","into":"*","power":"**","multiplied":"*","divided":"/","divide":"/","mod":"%","modulus":"%","or":"or","and":"and","not":"!","gt":">","lt":"<","gte":">=","lte":"<=","eq":"==","ne":"!="}
 blocks=["if","while","for","else","elif"]
 
 class token :
@@ -26,8 +26,13 @@ def program():
 				tab+=1
 			elif i == "]":
 				tab-=1
+			elif i == "pass":
+				prg=prg+'\t'*tab+i+"\n"
 			elif i.token == "for":
-				prg=prg+'\t'*tab + "for "+str(i.req[0])+" in range("+str(i.req[1])+","+str(i.req[2])+"):\n"
+				if len(i.req)==3:
+					prg=prg+'\t'*tab + "for "+str(i.req[0])+" in range("+str(i.req[1])+","+str(i.req[2])+"):\n"
+				elif len(i.req)==2:
+					prg=prg+'\t'*tab + "for "+str(i.req[0])+" in range("+str(i.req[1])+"):\n"
 			elif i.token == "if":
 				prg=prg+'\t'*tab+ "if " +str(i.req[0])+" :\n"
 			elif i.token == "else":
@@ -63,7 +68,7 @@ cmd = ["assign variable b with 6",
 def parse(cmd):
 	cmd = parse_nums(cmd)
 	cmd = parse_bool(cmd)
-	print("parsed " + cmd)
+	#print("parsed " + cmd)
 	task = 0
 	sent = cmd.lower().split(" ")
 	#assign
@@ -85,6 +90,8 @@ def parse(cmd):
 		count+=1
 		if i=="done":
 			stack.append(']')
+		elif i=="pass":
+			stack.append('pass')
 		elif i=="assign":
 			task=1
 		elif i=="create":
@@ -136,7 +143,7 @@ def parse(cmd):
 					stack[-1].req.append(i)
 					end=0
 					nextval=0
-					stack.append('[')
+					#stack.append('[')
 				elif nextval==1:
 					nextval=0
 					stack[-1].req=[i]
@@ -149,13 +156,15 @@ def parse(cmd):
 				elif end==1 and (i.isdigit() ) :
 					stack[-1].req.append(str(i))
 					end=0
-					stack.append('[')
+					#stack.append('[')
 				elif st==1 and i=="variable" :
 					nextval=1
 				
-				
 				elif end==1 and (i=="variable" ) :
 					nextval=1
+
+				if count==(len(sent)):
+					stack.append('[')
 
 			elif subtask==2:
 				if nextval==1:

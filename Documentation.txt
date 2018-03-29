@@ -1,0 +1,62 @@
+Types Of Commands:
+
+	*ASSIGN
+		|
+		--->Used to create or update variables
+
+	*CREATE
+		|
+		--->Used to create blocks such as if, for adn while
+
+	*FUNCTION
+		|
+		--->Used to call a function
+
+Reserved words : assign , create , function , variable , if , else , while , for ,pass , done
+Operations supported  : plus,minus,muliplication, division , modulus , power , and , or , not , all relational opertors
+
+Guidelines : An instruction must follow certain rules to be valid and generate code appropriately
+	*Must begin have assign , create , function as first reserved word
+	*To refer to variable prefix the reserved word "variable" before its name
+	*Prefix the word "with" prior to assigning an expression to a variable
+	*Use the "done" reserved word to close a block
+
+Examples:
+
+	*Using the if-else construct
+	|
+	---> create an if statement where variable a greater than or equals five
+		=> if a>=5 :
+	---> create if variable a not equals variable b to the power variable c
+		=> if a != b**c :
+	---> create else
+		=> else :
+
+	*Using a while loop
+	|
+	---> create a while loop with variable a less than equal to variable d and variable c not equals three
+		=>while a<=d and c!=3 :
+	---> create a while loop with one 
+		=>while 1 :
+
+	*Using a for loop
+	|
+	---> create for loop of variable i from one to two
+		=>for i in range(1,2) : 
+	---> create for loop of variable i till one
+		=>for in range(1):
+	---> create a for loop with variable i from variable a to ten
+		=>for i in range(a,10) :
+
+	*Using the assign statement
+	|
+	--->assign the variable a  with variable c plus variable d raised to the power four plus seven
+		=> a = c + d**4 +7
+
+	*How to end a block 
+	|
+	--->done
+
+	
+
+
