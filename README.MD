@@ -34,7 +34,6 @@ Implementation :
 
 Setup :
 
--Clone the repository 
 ```bash
   git clone https://github.com/chirag-jn/ByldHackv13/
   cd ByldHackv13
