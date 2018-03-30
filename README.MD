@@ -39,7 +39,7 @@ Saves time for searching code on StackOverflow, Codota
   cd ByldHackv13
   sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
   sudo apt-get install ffmpeg libav-tools
-  sudo pip3 install pyaudio
+  sudo python3 -m pip install pyaudio
   python3 -m pip install -r requirements.txt
   python3 main.py
 ```
