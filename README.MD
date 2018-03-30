@@ -35,8 +35,14 @@ Implementation :
 Setup :
 
 -Clone the repository 
--Install the requirements listed in requirements.txt
--Run main.py
-
+```bash
+  git clone https://github.com/chirag-jn/ByldHackv13/
+  cd ByldHackv13
+  sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
+  sudo apt-get install ffmpeg libav-tools
+  sudo pip3 install pyaudio
+  python3 -m pip install -r requirements.txt
+  python3 main.py
+```
 
 
