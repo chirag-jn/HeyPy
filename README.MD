@@ -22,8 +22,9 @@ Saves time for searching code on StackOverflow, Codota
 
 - Use Natural Language Processing for more accuracy in converting speech to text.
 - Provide code implementations in other programming languages
-- Code optimization and suggest more efficient algorithms of pseudo-code to users
+- Code optimization and suggest more efficient algorithms of pseudo-code to users.
 - Simultaneous error checking and prompts.
+- Allow users to edit and delete code blocks.
 
 ## Implementation
 
