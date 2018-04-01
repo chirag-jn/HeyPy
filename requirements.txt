@@ -1,3 +1,4 @@
 pyaudio
 wave
 requests
+word2number
