@@ -36,8 +36,8 @@ Saves time for searching code on StackOverflow, Codota
 ## Setup
 
 ```bash
-  git clone https://github.com/chirag-jn/ByldHackv13/
-  cd ByldHackv13
+  git clone https://github.com/chirag-jn/HeyPy/
+  cd HeyPy
   sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
   sudo apt-get install ffmpeg libav-tools
   sudo python3 -m pip install pyaudio
